@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import reducers from './reducers';
 
 class HomeScreen extends React.Component {
   render() {
@@ -26,7 +27,7 @@ const AppContainer = createAppContainer(AppNavigator);
 export default class App extends React.Component {
   render() {
     return (
-    <Provider store = {createStore} >
+    <Provider store = {createStore(reducers)} >
     <AppContainer />
     </Provider>
     );
