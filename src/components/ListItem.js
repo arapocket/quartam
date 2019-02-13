@@ -6,10 +6,12 @@ import { CardSection } from './common';
 class ListItem extends Component {
   state = {};
 
+
   render() {
+    const { singleData } = this.props;
     return (
       <CardSection>
-        <Text>{this.props.singleData.title}</Text>
+        <Text>{singleData.item.title }</Text>
       </CardSection>
     );
   }

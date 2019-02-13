@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import ListItem from './ListItem';
 
 
-class HomeScreen extends Component<any, any> {
+class HomeScreen extends Component {
   state = {
 
   };
@@ -12,16 +12,16 @@ class HomeScreen extends Component<any, any> {
   renderItem = singleData => <ListItem singleData={singleData} />
 
   render() {
-    const { singleData } = this.props;
+    const { someData } = this.props;
     console.log(this.props);
     return (
 
       <View style={{ flex: 1 }}>
 
         <FlatList
-          data={singleData}
+          data={someData}
           renderItem={this.renderItem}
-          keyExtractor={singleData.id}
+          keyExtractor={singleData => singleData.id}
         />
 
       </View>
@@ -29,7 +29,7 @@ class HomeScreen extends Component<any, any> {
   }
 }
 
-const mapStateToProps = state => ({ singleData: state.someData });
+const mapStateToProps = state => ({ someData: state.someData });
 
 
 export default connect(mapStateToProps)(HomeScreen);
