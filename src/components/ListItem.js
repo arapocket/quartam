@@ -8,10 +8,10 @@ class ListItem extends Component {
 
 
   render() {
-    const { singleData } = this.props;
+    const { library } = this.props;
     return (
       <CardSection>
-        <Text>{singleData.item.title }</Text>
+        <Text>{library.item.title }</Text>
       </CardSection>
     );
   }

@@ -9,19 +9,19 @@ class HomeScreen extends Component {
 
   };
 
-  renderItem = singleData => <ListItem singleData={singleData} />
+  renderItem = library => <ListItem library={library} />
 
   render() {
-    const { someData } = this.props;
+    const { libraries } = this.props;
     console.log(this.props);
     return (
 
       <View style={{ flex: 1 }}>
 
         <FlatList
-          data={someData}
+          data={libraries}
           renderItem={this.renderItem}
-          keyExtractor={singleData => singleData.id}
+          keyExtractor={library => library.id}
         />
 
       </View>
@@ -29,7 +29,7 @@ class HomeScreen extends Component {
   }
 }
 
-const mapStateToProps = state => ({ someData: state.someData });
+const mapStateToProps = state => ({ libraries: state.libraries });
 
 
 export default connect(mapStateToProps)(HomeScreen);
